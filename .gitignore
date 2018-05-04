@@ -1,2 +1,7 @@
 *.pyc
 __pycache__/
+/.vscode
+/best_policy.model
+/current_policy.model
+/engine
+/result

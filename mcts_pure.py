@@ -7,6 +7,7 @@ A pure implementation of the Monte Carlo Tree Search (MCTS)
 
 import numpy as np
 import copy
+import time
 from operator import itemgetter
 
 
@@ -194,10 +195,12 @@ class MCTSPlayer(object):
         self.mcts.update_with_move(-1)
 
     def get_action(self, board):
+        start = time.time()
         sensible_moves = board.availables
         if len(sensible_moves) > 0:
             move = self.mcts.get_move(board)
             self.mcts.update_with_move(-1)
+            print('MCTSPlayer Elapsed : ', time.time() - start)
             return move
         else:
             print("WARNING: the board is full")
